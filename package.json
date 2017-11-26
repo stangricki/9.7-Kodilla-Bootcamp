@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack-dev-server --progress --colors --open"
+    "test": "ava js/*.spec.js --verbose",
+    "preserve": "npm run test",
+    "serve": "webpack-dev-server --progress --open"
   },
   "repository": {
     "type": "git",
@@ -18,9 +20,16 @@
   },
   "homepage": "https://github.com/stangricki/9.7-Kodilla-Bootcamp#readme",
   "devDependencies": {
+    "ava": "^0.23.0",
     "html-webpack-plugin": "^2.30.1",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "ava": {
+    "require": ["babel-register"]
+  },
+  "babel": {
+    "presets": ["@ava/stage-4"]
+  }
 }
